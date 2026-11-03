@@ -1,4 +1,5 @@
 import bcrypt
+
 class UserModules:
     def __init__(self,name,password,email,type,adress,img,id_user = None):
         self.id_user = id_user

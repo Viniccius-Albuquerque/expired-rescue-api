@@ -17,9 +17,9 @@ class products_modules:
     def id_product(self, value):
         if value is not None:
             if not isinstance(value, int) or isinstance(value, bool):
-                raise TypeError("id_product deve ser um número inteiro")
+                raise TypeError("id deve ser um número inteiro")
             if value <= 0:
-                raise ValueError("id_product deve ser maior que zero")
+                raise ValueError("id deve ser maior que zero")
         self.__id_product = value
 
     @property
@@ -92,5 +92,4 @@ class products_modules:
             if os.path.getsize(value) > 5 * 1024 * 1024:
                 raise ValueError("img excede o tamanho limite de 5MB")
         self.__img = value
-        
         
