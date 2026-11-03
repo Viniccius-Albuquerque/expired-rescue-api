@@ -1,4 +1,5 @@
 import datetime
+from utils.valid_IDs import validando_id
 
 class code_modules:
     def __init__(self, id_code, value, time, id_user, email):
@@ -14,10 +15,7 @@ class code_modules:
     @id_code.setter
     def id_code(self, value):
         if value is not None:
-            if not isinstance(value, int) or isinstance(value, bool):
-                raise TypeError("id deve ser um número inteiro")
-            if value <= 0:
-                raise ValueError("id deve ser maior que zero")
+            validando_id(value)
         self.__id_code = value
 
     @property
