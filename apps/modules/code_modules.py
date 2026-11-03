@@ -30,3 +30,14 @@ class code_modules:
         if value < 1000 or value > 9999:
             raise ValueError("value deve ser um número inteiro de 4 dígitos")
         self.__value = value
+
+    @property
+    def id_user(self):
+        return self.__id_user
+    @id_user.setter
+    def id_user(self, value):
+        if value is None:
+            self.__id_user = None
+        else:
+            self.__id_user = value
+            
