@@ -60,8 +60,6 @@ class UserModules:
         return self._email
     @email.setter
     def email(self,NewEmail):
-        if NewEmail is not None:
-            NewEmail = valid_email(NewEmail)
         self._email = NewEmail
         
     @property
