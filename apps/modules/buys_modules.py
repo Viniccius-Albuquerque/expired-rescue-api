@@ -43,7 +43,7 @@ class BuysModules:
     @qtt.setter
     def qtt(self, NewQtt):
         if not isinstance(NewQtt,int) or isinstance(NewQtt,bool):
-            raise ValueError("A quantidade deve ser um número inteiro.")
+            raise TypeError("A quantidade deve ser um número inteiro.")
         if NewQtt <= 0:
             raise ValueError("A quantidade não pode ser zero ou negativa.")
         self._qtt = NewQtt
@@ -54,7 +54,7 @@ class BuysModules:
     @price_at_buy.setter
     def price_at_buy(self, NewPrice_at_buy):
         if not isinstance(NewPrice_at_buy,(int,float)) or isinstance(NewPrice_at_buy,bool):
-            raise ValueError("O preço da compra deve ser um número.")
+            raise TypeError("O preço da compra deve ser um número.")
         if NewPrice_at_buy <= 0:
             raise ValueError("O preço da compra não pode ser zero ou negativo.")
         self._price_at_buy = NewPrice_at_buy
@@ -67,7 +67,7 @@ class BuysModules:
         if hasattr(self, '_status') and self._status in ("completed", "canceled"):
             raise ValueError("A compra já foi finalizada ou cancelada e não pode mais ser alterada.")
         if not isinstance(NewStatus,str):
-            raise ValueError("O status da compra deve ser uma string.")
+            raise TypeError("O status da compra deve ser uma string.")
         NewStatus = NewStatus.strip().lower()
         status_valid = ("processing","completed", "canceled")
         if NewStatus not in status_valid:

@@ -27,7 +27,7 @@ class UserModules:
     @name.setter
     def name(self,NewName):
         if not isinstance(NewName,str):
-            raise ValueError("O nome do usuário deve ser uma string.")
+            raise TypeError("O nome do usuário deve ser uma string.")
         NewName = NewName.strip()
         if not NewName:
             raise ValueError("O nome do usuário não pode ser vazio.")
@@ -43,7 +43,7 @@ class UserModules:
     @password.setter
     def password(self,NewPassword):
         if not isinstance(NewPassword,str):
-            raise ValueError("A senha do usuário deve ser uma string.")
+            raise TypeError("A senha do usuário deve ser uma string.")
         NewPassword = NewPassword.strip()
         if not NewPassword:
             raise ValueError("A senha do usuário não pode ser vazia.")
@@ -68,7 +68,7 @@ class UserModules:
     @type.setter
     def type(self,NewType):
         if not isinstance(NewType,str):
-            raise ValueError("O tipo do usuário deve ser uma string.")
+            raise TypeError("O tipo do usuário deve ser uma string.")
         NewType = NewType.strip().lower()
         types_valid = ("client","finance", "admin")
         if NewType not in types_valid:
@@ -82,7 +82,7 @@ class UserModules:
     def adress(self,NewAdress):
         if self.type == "client":
             if not isinstance(NewAdress,str) or not NewAdress.strip():
-               raise ValueError("O endereço é obrigatorio para clientes.")
+               raise TypeError("O endereço é obrigatorio para clientes.")
         if NewAdress is not None:
             NewAdress = str(NewAdress).strip()
         self._adress = NewAdress

@@ -1,5 +1,6 @@
 import datetime
 from utils.valid_IDs import validando_id
+from utils.valid_email import email as valid_email
 
 class code_modules:
     def __init__(self, id_code, value, time, id_user, email):
@@ -37,4 +38,12 @@ class code_modules:
         if value is not None:
             validando_id(value)
         self.__id_user = value
-            
+        
+    @property
+    def email(self):
+        return self.__email
+    @email.setter
+    def email(self, value):
+        if value is not None:
+            value = valid_email(value)
+        self.__email = value    

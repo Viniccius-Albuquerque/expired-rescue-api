@@ -1,6 +1,6 @@
 def email(NewEmail):
     if not isinstance(NewEmail,str):
-        raise ValueError("O email do usuário deve ser uma string.")
+        raise TypeError("O email do usuário deve ser uma string.")
     NewEmail = NewEmail.strip()
     if not NewEmail:
         raise ValueError("O email do usuário não pode ser vazio.")
