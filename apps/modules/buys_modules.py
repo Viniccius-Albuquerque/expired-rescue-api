@@ -24,19 +24,19 @@ class BuysModules:
         return self._id_user
     @id_user.setter
     def id_user(self, NewID_user):
-        if NewID_user is not None:
-            validando_id(NewID_user)
-        self._id_user = NewID_user
+       if NewID_user is None:
+           raise ValueError("O ID do usuário é obrigatório na compra.")
+       self._id_user = validando_id(NewID_user)
 
     @property
     def id_product(self):
         return self._id_product
     @id_product.setter
     def id_product(self, NewID_product):
-        if NewID_product is not None:
-            validando_id(NewID_product)
-        self._id_product = NewID_product
-    
+        if NewID_product is None:
+            raise ValueError("O ID do produto é obrigatório na compra.")
+        self._id_product = validando_id(NewID_product)
+
     @property
     def qtt(self):
         return self._qtt

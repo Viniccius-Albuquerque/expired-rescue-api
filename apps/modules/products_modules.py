@@ -2,7 +2,7 @@ import datetime
 import os
 from utils.valid_IDs import validando_id
 class products_modules:
-    def __init__(self, id_product, name, qtt, expiration_date, price, img=None):
+    def __init__(self, name, qtt, expiration_date, price, img=None,id_product = None):
         self.id_product = id_product
         self.name = name
         self.qtt = qtt
@@ -25,7 +25,7 @@ class products_modules:
     @name.setter
     def name(self, value):
         if not isinstance(value, str):
-            raise TypeError("name deve ser uma string")
+            raise ValueError("name deve ser uma string")
         value = value.strip()
         if len(value) < 4 or len(value) > 50:
             raise ValueError("name deve ter no mínimo 4 e no máximo 50 caracteres")
@@ -39,7 +39,7 @@ class products_modules:
     @qtt.setter
     def qtt(self, value):
         if not isinstance(value, int) or isinstance(value, bool):
-            raise TypeError("qtt deve ser um número inteiro")
+            raise ValueError("qtt deve ser um número inteiro")
         if value < 0:
             raise ValueError("qtt deve ser um inteiro maior ou igual a zero")
         self.__qtt = value
@@ -50,7 +50,7 @@ class products_modules:
     @expiration_date.setter
     def expiration_date(self, value):
         if not isinstance(value, datetime.date):
-            raise TypeError("expiration_date deve ser um objeto datetime.date")
+            raise ValueError("expiration_date deve ser um objeto datetime.date")
         if value <= datetime.date.today():
             raise ValueError("expiration_date deve ser estritamente no futuro (maior que a data atual)")
         self.__expiration_date = value
@@ -61,7 +61,7 @@ class products_modules:
     @price.setter
     def price(self, value):
         if not isinstance(value, (int, float)) or isinstance(value, bool):
-            raise TypeError("price deve ser um número float")
+            raise ValueError("price deve ser um número float")
         if value <= 0.0:
             raise ValueError("price deve ser estritamente maior que zero")
         self.__price = float(value)
@@ -75,7 +75,7 @@ class products_modules:
             self.__img = None
             return
         if not isinstance(value, str):
-            raise TypeError("img deve ser uma string com o caminho do arquivo")
+            raise ValueError("img deve ser uma string com o caminho do arquivo")
         value = value.strip()
         if not value:
             self.__img = None
