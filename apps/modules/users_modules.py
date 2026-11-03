@@ -1,6 +1,4 @@
 import bcrypt
-from utils import valid_email
-
 class UserModules:
     def __init__(self,name,password,email,type,adress,img,id_user = None):
         self.id_user = id_user
@@ -62,7 +60,16 @@ class UserModules:
         return self._email
     @email.setter
     def email(self,NewEmail):
-        valid_email(self,NewEmail)
+        if not isinstance(NewEmail,str):
+            raise ValueError("O email do usuário deve ser uma string.")
+        NewEmail = NewEmail.strip()
+        if not NewEmail:
+            raise ValueError("O email do usuário não pode ser vazio.")
+        if "@" not in NewEmail or "." not in NewEmail:
+            raise ValueError("O email do usuário deve conter '@' e '.'")
+        if NewEmail.count("@") != 1:
+            raise ValueError("O email do usuário deve conter apenas um '@'.")
+        self._email = NewEmail
 
     @property
     def type(self):
