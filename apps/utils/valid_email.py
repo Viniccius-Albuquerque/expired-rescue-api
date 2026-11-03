@@ -1,4 +1,4 @@
-def email(self,NewEmail):
+def email(NewEmail):
     if not isinstance(NewEmail,str):
         raise ValueError("O email do usuário deve ser uma string.")
     NewEmail = NewEmail.strip()
@@ -8,4 +8,4 @@ def email(self,NewEmail):
         raise ValueError("O email do usuário deve conter '@' e '.'")
     if NewEmail.count("@") != 1:
         raise ValueError("O email do usuário deve conter apenas um '@'.")
-    self._email = NewEmail
+    return NewEmail
