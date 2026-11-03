@@ -4,7 +4,7 @@ class code_modules:
     def __init__(self, id_code, value, time, id_user, email):
         self.id_code = id_code
         self.value = value
-        self.time = datetime.datetime.now()
+        self.time = time if time is not None else datetime.datetime.now()
         self.id_user = id_user
         self.email = email
         
