@@ -60,7 +60,7 @@ class UserModules:
         return self._email
     @email.setter
     def email(self,NewEmail):
-        self._email = NewEmail
+        self._email = valid_email(NewEmail)
         
     @property
     def type(self):
