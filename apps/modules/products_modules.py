@@ -1,6 +1,6 @@
 import datetime
 import os
-
+from utils.valid_IDs import validando_id
 class products_modules:
     def __init__(self, id_product, name, qtt, expiration_date, price, img=None):
         self.id_product = id_product
@@ -14,13 +14,10 @@ class products_modules:
     def id_product(self):
         return self.__id_product
     @id_product.setter
-    def id_product(self, value):
-        if value is not None:
-            if not isinstance(value, int) or isinstance(value, bool):
-                raise TypeError("id deve ser um número inteiro")
-            if value <= 0:
-                raise ValueError("id deve ser maior que zero")
-        self.__id_product = value
+    def id_product(self, id_product):
+        if id_product is not None:
+            validando_id(id_product)
+        self.__id_product = id_product
 
     @property
     def name(self):
