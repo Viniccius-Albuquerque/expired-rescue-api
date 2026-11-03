@@ -34,8 +34,7 @@ class code_modules:
         return self.__id_user
     @id_user.setter
     def id_user(self, value):
-        if value is None:
-            self.__id_user = None
-        else:
-            self.__id_user = value
+        if value is not None:
+            validando_id(value)
+        self.__id_user = value
             
