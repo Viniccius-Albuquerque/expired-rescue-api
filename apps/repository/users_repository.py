@@ -135,7 +135,7 @@ class UserRepository:
             conn.close()
 
 
-    def update_password(self,id_user,password,new_password):
+    def update_password(self,id_user,new_password):
         conn = Conection.conectar()
         cursor = conn.cursor(row_factory=dict_row)
         try:
