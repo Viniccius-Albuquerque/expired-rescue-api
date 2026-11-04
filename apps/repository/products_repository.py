@@ -18,11 +18,7 @@ class ProductRepository():
                     conn.commit()
                     return product
         except Exception:
-            conn.rollback()
             return None
-        finally:
-            cursor.close()
-            conn.close()
             
     def list_products():
         try:
@@ -37,9 +33,6 @@ class ProductRepository():
                     return products
         except Exception:
             return []
-        finally:
-            cursor.close()
-            conn.close()
             
     def get_product(id_product):
         try:
@@ -55,9 +48,6 @@ class ProductRepository():
                     return product
         except Exception:
             return None
-        finally:
-            cursor.close()
-            conn.close()
             
     def update_product(id_product, qtt, price, img):
         try:
@@ -76,11 +66,7 @@ class ProductRepository():
                     conn.commit()
                     return product
         except Exception:
-            conn.rollback()
             return None
-        finally:
-            cursor.close()
-            conn.close()
             
     def delete_product(id_product):
         try:
@@ -95,11 +81,7 @@ class ProductRepository():
                     conn.commit()
                     return cursor.rowcount
         except Exception:
-            conn.rollback()
             return 0
-        finally:
-            cursor.close()
-            conn.close()
             
     def update_stock(id_product, new_qtt):
         try:
@@ -116,11 +98,7 @@ class ProductRepository():
                     conn.commit()
                     return cursor.rowcount
         except Exception:
-            conn.rollback()
             return 0
-        finally:
-            cursor.close()
-            conn.close()
             
     def list_product_by_expiration():
         try:
@@ -136,6 +114,3 @@ class ProductRepository():
                     return products
         except Exception:
             return []
-        finally:
-            cursor.close()
-            conn.close()
