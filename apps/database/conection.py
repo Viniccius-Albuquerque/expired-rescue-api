@@ -6,7 +6,7 @@ load_dotenv()
 
 class Conection:
     @staticmethod
-    def conectar():
+    def connect():
         try:
             database_url = os.getenv("DATABASE_URL")
             if database_url:
