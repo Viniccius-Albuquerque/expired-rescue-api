@@ -17,7 +17,7 @@ class CodeRepository:
                     code = cursor.fetchone()
                     conn.commit()
                     return code
-        except Exception as erro:
+        except Exception:
             return None
 
     def delete_code(id_code):
@@ -30,7 +30,7 @@ class CodeRepository:
                     )
                     conn.commit()
                     return cursor.rowcount
-        except Exception as erro:
+        except Exception:
             return 0
 
     def valid_code(id_user, user_code, email):
@@ -62,5 +62,5 @@ class CodeRepository:
                     
                     code = cursor.fetchone()
                     return 1 if code else 0
-        except Exception as erro:
+        except Exception:
             return 0
