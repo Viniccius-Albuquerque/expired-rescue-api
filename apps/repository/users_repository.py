@@ -4,7 +4,7 @@ from psycopg.rows import dict_row
 class UserRepository:
     
     def register_user(self, name, password, email):
-        conn = Conection.conectar()
+        conn = Conection.connect()
         cursor = conn.cursor(row_factory=dict_row)
         try:
             cursor.execute(
@@ -27,7 +27,7 @@ class UserRepository:
 
 
     def list_users(self):
-        conn = Conection.conectar()
+        conn = Conection.connect()
         cursor = conn.cursor(row_factory=dict_row)
         try:
             cursor.execute(
@@ -48,7 +48,7 @@ class UserRepository:
 
 
     def get_user_by_email(self,email):
-        conn = Conection.conectar()
+        conn = Conection.connect()
         cursor = conn.cursor(row_factory=dict_row)
         try:
             cursor.execute(
@@ -69,7 +69,7 @@ class UserRepository:
 
 
     def get_user(self,id_user):
-        conn = Conection.conectar()
+        conn = Conection.connect()
         cursor = conn.cursor(row_factory=dict_row)
         try:
             cursor.execute(
@@ -90,7 +90,7 @@ class UserRepository:
 
 
     def delete_user(self,id_user):
-        conn = Conection.conectar()
+        conn = Conection.connect()
         cursor = conn.cursor(row_factory=dict_row)
         try:
             cursor.execute(
@@ -112,7 +112,7 @@ class UserRepository:
 
 
     def update_user(self,id_user, name, email, adress, img):
-        conn = Conection.conectar()
+        conn = Conection.connect()
         cursor = conn.cursor(row_factory=dict_row)
         try:
             cursor.execute(
@@ -136,7 +136,7 @@ class UserRepository:
 
 
     def update_password(self,id_user,new_password):
-        conn = Conection.conectar()
+        conn = Conection.connect()
         cursor = conn.cursor(row_factory=dict_row)
         try:
             cursor.execute(
