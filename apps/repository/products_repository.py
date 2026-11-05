@@ -100,7 +100,7 @@ class ProductRepository():
         except Exception:
             return 0
             
-    def list_product_by_expiration():
+    def list_products_by_expiration():
         try:
             with Conection.connect() as conn:
                 with conn.cursor(row_factory=dict_row) as cursor:

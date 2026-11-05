@@ -1,8 +1,8 @@
 import datetime
 import os
 from utils.valid_IDs import validando_id
-class products_modules:
-    def __init__(self, name, qtt, expiration_date, price, img=None,id_product = None):
+class ProductsModules:
+    def __init__(self, name, qtt, expiration_date, price, img=None, id_product=None):
         self.id_product = id_product
         self.name = name
         self.qtt = qtt
@@ -90,3 +90,10 @@ class products_modules:
                 raise ValueError("img excede o tamanho limite de 5MB")
         self.__img = value
         
+class ProductGet(ProductsModules):
+    def __init__(self, id_product):
+        super().__init__(None, None, None, None, None, id_product)
+        
+class ProductUpdate(ProductsModules):
+    def __init__(self, id_product, qtt, price, img):
+        super().__init__(None, qtt, None, price, img, id_product)
