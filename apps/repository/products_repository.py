@@ -1,8 +1,8 @@
 from psycopg.rows import dict_row
 from apps.database.conection import Conection
 
-class ProductRepository():
-    def create_product(name, qtt, expiration_date, price, img):
+class ProductRepository:
+    def create_product(self, name, qtt, expiration_date, price, img):
         try:
             with Conection.connect() as conn:
                 with conn.cursor(row_factory=dict_row) as cursor:
@@ -20,7 +20,7 @@ class ProductRepository():
         except Exception:
             return None
             
-    def list_products():
+    def list_products(self):
         try:
             with Conection.connect() as conn:
                 with conn.cursor(row_factory=dict_row) as cursor:
@@ -34,7 +34,7 @@ class ProductRepository():
         except Exception:
             return []
             
-    def get_product(id_product):
+    def get_product(self, id_product):
         try:
             with Conection.connect() as conn:
                 with conn.cursor(row_factory=dict_row) as cursor:
@@ -49,7 +49,7 @@ class ProductRepository():
         except Exception:
             return None
             
-    def update_product(id_product, qtt, price, img):
+    def update_product(self, id_product, qtt, price, img):
         try:
             with Conection.connect() as conn:
                 with conn.cursor(row_factory=dict_row) as cursor:
@@ -68,7 +68,7 @@ class ProductRepository():
         except Exception:
             return None
             
-    def delete_product(id_product):
+    def delete_product(self, id_product):
         try:
             with Conection.connect() as conn:
                 with conn.cursor(row_factory=dict_row) as cursor:
@@ -83,7 +83,7 @@ class ProductRepository():
         except Exception:
             return 0
             
-    def update_stock(id_product, new_qtt):
+    def update_stock(self, id_product, new_qtt):
         try:
             with Conection.connect() as conn:
                 with conn.cursor(row_factory=dict_row) as cursor:
@@ -100,7 +100,7 @@ class ProductRepository():
         except Exception:
             return 0
             
-    def list_products_by_expiration():
+    def list_products_by_expiration(self):
         try:
             with Conection.connect() as conn:
                 with conn.cursor(row_factory=dict_row) as cursor:
