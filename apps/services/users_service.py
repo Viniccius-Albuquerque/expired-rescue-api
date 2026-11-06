@@ -1,8 +1,9 @@
-from apps.schemas.users_schemas import UserCreate, UserLoginSchemas,UserUpdateSchemas,UserPasswordUpdateSchemas,UserUpdateSchemas
+from apps.schemas.users_schemas import UserCreate, UserLoginSchemas, UserUpdateSchemas, UserPasswordUpdateSchemas
+from apps.repository.users_repository import UserRepository
 import bcrypt
 
 class UserService:
-    def __init__(self, user_repository):
+    def __init__(self, user_repository: UserRepository):
         self.user_repository = user_repository
 
 
