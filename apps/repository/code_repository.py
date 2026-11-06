@@ -10,7 +10,7 @@ class CodeRepository:
                         '''
                         INSERT INTO codes (value, time, id_user, email)
                         VALUES (%s, %s, %s, %s)
-                        RETURNING id_code, value, time, id_user, email, created_at;
+                        RETURNING id_code, value, time, id_user, email;
                         ''',
                         (value, time, id_user, email)
                     )

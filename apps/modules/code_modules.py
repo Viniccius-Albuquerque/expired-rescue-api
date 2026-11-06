@@ -1,6 +1,6 @@
 import datetime
-from utils.valid_IDs import validando_id
-from utils.valid_email import email as valid_email
+from apps.utils.valid_IDs import validando_id
+from apps.utils.valid_email import email as valid_email
 
 class CodeModules:
     def __init__(self, id_code, value, time, id_user, email):
@@ -46,4 +46,21 @@ class CodeModules:
     def email(self, value):
         if value is not None:
             value = valid_email(value)
-        self.__email = value    
+        self.__email = value
+        
+class CodeCreate:
+    def __init__(self, email, id_user=None):
+        self.email = valid_email(email)
+        self.id_user = validando_id(id_user) if id_user is not None else None
+
+class CodeGet:
+    def __init__(self, id_code):
+        self.id_code = validando_id(id_code)
+
+class CodeValidate:
+    def __init__(self, id_user, user_code, email):
+        self.id_user = validando_id(id_user) if id_user is not None else None
+        if not isinstance(user_code, int) or user_code < 1000 or user_code > 9999:
+            raise ValueError("user_code deve ser um número inteiro de 4 dígitos")
+        self.user_code = user_code
+        self.email = valid_email(email)
